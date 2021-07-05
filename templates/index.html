@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Leave Letter Website</title>
+    <script src="/static/fun.js"></script>
 </head>
 <body>
     <form action="#" method="post">
-        <h1>To</h1><input type="text" name="to"><br>
-        <h1>Subject</h1><input type="text" name="subject"><br>
-        <h1>Body</h1><input type="text" name="body">
+            Enter your name as required in format:	<input type="text" name="fullname" required><br><br>
+			Enter the receiver's mail address: <input type="email" name="to" placeholder="example@domain.com" required><br><br>
+			Enter the subject: <input type="text" name="subject" required><br>
+            Enter the body of the letter:<br>
+			<textarea id="body" name="body" rows="10" cols="50" required></textarea><br>
+			<button type="button" onclick="prefill()">Tap for a hint about format</button>
         <button type="submit">Send mail</button>
     </form>
 </body>
