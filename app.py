@@ -5,8 +5,13 @@ app = Flask(__name__)
 #url = "mailto:abhishekanavekar32@gmail.com?&subject=This is subject&body=This is body%0AThis is next line"
 
 def helper(fullname,to,subject,body):
-    url = "mailto:"+to+"?&subject="+subject+"&body="+body+fullname
+    string = "mailto:"+to+"?&subject="+subject+"&body="+body+fullname+"\n\n"
     #print(url)
+    url = convert_to_url_format(string)
+    return url
+
+def  convert_to_url_format(string):
+    url = string.replace('\n','%0A')
     return url
 
 @app.route("/", methods=["POST","GET"])
