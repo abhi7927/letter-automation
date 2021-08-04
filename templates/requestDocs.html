@@ -14,12 +14,14 @@
         <form action="#" method="post">
             Enter your name: <input type="text" name="fullname" required><br><br>
             Enter the receiver's e-mail address: <input type="email" name="to" placeholder="example@domain.com" required><br><br>
+            Enter reciever's name: <input type="text" name="fullname_reciever" required><br><br>
             Enter the documents required with comma's: <input type="text" placeholder="adhaar card, marks card" name="documents" required><br><br>
             Enter the subject: <input type="text" name="subject" value="Request for documents" required><br><br>
             Enter the body of the letter:<br>
             <textarea id="body" name="body" rows="10" cols="50" required></textarea><br><br>
             <button type="button" onclick="requestDocsPrefill()">Tap for a hint about format</button>
-            <button type="submit">Send mail</button><br><br>
+            <button type="button" onclick="get_pdf()">Download</button>
+            <button type="submit" value="mail">Send mail</button><br><br>
         </form>
         <a href="{{url_for('index')}}">Back to home page</a>
     </div>

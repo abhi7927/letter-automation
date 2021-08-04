@@ -21,7 +21,7 @@ body{
     border-radius: 15px 15px 15px ;
     border-block-color: black;
 }
-button[type="button"]{
+/*button[type="button"]{
     cursor:pointer;
     padding: 2px 2px 2px 2px;
     border-radius: 5px 5px 5px 5px; 
@@ -38,7 +38,33 @@ button[type="button"]{
  }
  button:hover{
     color: rgb(255, 157, 0) ;
- }
+
+ }*/
+
+ button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  button {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+  }
+  
+  button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
 
 ul li{
     list-style: none;
@@ -47,4 +73,8 @@ ul li{
 h1:hover
 {
     color:rgb(62, 107, 255)
+}
+
+a{
+    text-decoration: none;
 }

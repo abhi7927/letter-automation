@@ -30,9 +30,10 @@ def leaveLetter():
         to = request.form['to'] 
         subject = request.form['subject']
         body = request.form['body']
+        fullname = request.form['fullname']
         url = helper(to,subject,body)
         return redirect(url) 
-
+        
 @app.route("/requestDocs", methods=["POST","GET"])
 def requestDocs():
     global url
@@ -44,9 +45,6 @@ def requestDocs():
         body = request.form['body']
         url = helper(to,subject,body)
         return redirect(url) 
-
-
-
 
 if __name__=="__main__":   
     app.run(debug=True)
