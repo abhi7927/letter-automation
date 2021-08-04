@@ -1,3 +1,6 @@
+
+
+
 function leaveLetterPrefill() {    
     var initialdate = document.querySelector("body > div > form > input[type=date]:nth-child(10)").value
     var finaldate = document.querySelector("body > div > form > input[type=date]:nth-child(13)").value
@@ -17,10 +20,10 @@ function requestDocsPrefill(){
     document.getElementById("body").value = "Respected Mr/Mrs,"+ "\n\n" +
     "This letter is to inform you that for further process of your request we need the required documents as mentioned: "+
     documents + "." + " You are requested to do the needful as early as possible." + 
-    "\n\nThank You," + "\n\n"+fullname;
+    "\n\nThank You," + "\n\n"+"Yours faithfully\n"+fullname;
 }  
 
-function get_pdf() {
+/* function get_pdf() {
     var from = document.getElementsByName('fullname')[0].value
     var to = document.getElementsByName('fullname_reciever')[0].value
     var subject = document.getElementsByName('subject')[0].value
@@ -35,12 +38,44 @@ function get_pdf() {
     mywindow.document.write('</body></html>');
 
     mywindow.document.close(); // necessary for IE >= 10
-    mywindow.focus(); // necessary for IE >= 10*/
+    mywindow.focus(); // necessary for IE >= 10
 
     mywindow.print();
     mywindow.close();
 
     return true;
+} */
+
+function get_pdf() {
+    var from = document.getElementsByName('fullname')[0].value
+    var to = document.getElementsByName('fullname_reciever')[0].value
+    var subject = document.getElementsByName('subject')[0].value
+    var body = document.getElementById('body').value
+    /* body = body.slice(19);
+    body = body.slice(0,body.indexOf('\n')); */
+    /* var final_text = 'From: '+from+'\n\n'+'To: '+to+'\n\n'+'Subject: '+subject+'\n\n'+body;
+    var doc = new jsPDF();
+    doc.setFontSize(14);
+    doc.text(30, 20,final_text);
+    doc.save('mail.pdf'); */
+
+    var doc = new jspdf();
+    var line = 25 // Line height to start text at
+    var lineHeight = 5
+    var leftMargin = 20
+    var wrapWidth = 180
+    var longString = 'From: '+from+'\n\n'+'To: '+to+'\n\n'+'Subject: '+subject+'\n\n'+body;
+
+    var splitText = doc.splitTextToSize(longString, wrapWidth)
+    for (var i = 0, length = splitText.length; i < length; i++) {
+    // loop thru each line and increase
+    doc.text(splitText[i], leftMargin, line)
+    line = lineHeight + line
+    }
+    doc.save('mail.pdf');
+    return true;
 }
 
 //'From: '+from+'<br><br>'+'To: '+to+'<br><br>'+'Subject: '+subject+'<br><br>'+body
+
+//<html><head></head><body>`+'From: '+from+'<br><br>'+'To: '+to+'<br><br>'+'Subject: '+subject+'<br><br>'+'Respected Mr/Mrs<br><br>'+body+'<br><br>'+'Thankyou,'+'<br><br>'+from+`</body></html>
