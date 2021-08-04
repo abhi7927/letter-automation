@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document request Letter Generator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/fun.js"></script>
+</head>
+<body>
+    <div class="letterbody" align="center">
+        <h1 align="center">Document request letter</h1><br>
+        <form action="#" method="post">
+            Enter your name: <input type="text" name="fullname" required><br><br>
+            Enter the receiver's e-mail address: <input type="email" name="to" placeholder="example@domain.com" required><br><br>
+            
+            Enter the subject: <input type="text" name="subject" required><br><br>
+            Enter the body of the letter:<br>
+            <textarea id="body" name="body" rows="10" cols="50" required></textarea><br><br>
+            <button type="button" onclick="prefill()">Tap for a hint about format</button>
+            <button type="submit">Send mail</button>
+        </form>
+    </div>
+</body>
+</html> 

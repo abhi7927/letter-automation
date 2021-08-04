@@ -15,10 +15,17 @@ def  convert_to_url_format(string):
     return url
 
 @app.route("/", methods=["POST","GET"])
-def home():
+def index():
     global url
     if request.method=='GET':
         return render_template("index.html")
+
+
+@app.route("/leaveLetter", methods=["POST","GET"])
+def leaveLetter():
+    global url
+    if request.method=='GET':
+        return render_template("leaveLetter.html")
     if request.method=='POST':
         to = request.form['to'] 
         subject = request.form['subject']
@@ -26,5 +33,20 @@ def home():
         url = helper(to,subject,body)
         return redirect(url) 
 
-if __name__=="__main__":
+@app.route("/requestDocs", methods=["POST","GET"])
+def requestDocs():
+    global url
+    if request.method=='GET':
+        return render_template("requestDocs.html")
+    if request.method=='POST':
+        to = request.form['to'] 
+        subject = request.form['subject']
+        body = request.form['body']
+        url = helper(to,subject,body)
+        return redirect(url) 
+
+
+
+
+if __name__=="__main__":   
     app.run(debug=True)
