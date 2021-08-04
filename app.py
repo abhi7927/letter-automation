@@ -14,9 +14,8 @@ def  convert_to_url_format(string):
     url = string.replace('\n','%0A')
     return url
 
-@app.route("/", methods=["POST","GET"])
+@app.route("/", methods=["GET"])
 def index():
-    global url
     if request.method=='GET':
         return render_template("index.html")
 
@@ -30,7 +29,7 @@ def leaveLetter():
         to = request.form['to'] 
         subject = request.form['subject']
         body = request.form['body']
-        fullname = request.form['fullname']
+        #fullname = request.form['fullname']
         url = helper(to,subject,body)
         return redirect(url) 
         
