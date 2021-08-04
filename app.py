@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, request
 from flask.helpers import url_for
 app = Flask(__name__)
 
-#url = "mailto:abhishekanavekar32@gmail.com?&subject=This is subject&body=This is body%0AThis is next line"
+#url = "mailto:example@gmail.com?&subject=This is subject&body=This is body%0AThis is next line"
 
 def helper(to,subject,body):
     string = "mailto:"+to+"?&subject="+subject+"&body="+body
