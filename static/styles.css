@@ -43,3 +43,8 @@ button[type="button"]{
 ul li{
     list-style: none;
 }
+
+h1:hover
+{
+    color:rgb(62, 107, 255)
+}
