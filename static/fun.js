@@ -9,7 +9,7 @@ function leaveLetterPrefill() {
     document.getElementById("body").value = "Respected Mr/Mrs,"+ "\n\n" +
     "I would like to bring to your kind attention that due to (enter the reason),"+
     " I would like to take a leave of absence for " + duration +
-    " days. I have handled my responsibilities to (enter the names) and I am sure they will co-operate in my absence."+
+    " days. I have assigned my responsibilities to (enter the names) and I am sure they will co-operate in my absence."+
     " I hope you understand my situation and grant me leave from " +
      initialdate +" to "+finaldate +"."+
     "\n\nThank You," + "\n\nYours Faithfully\n"+fullname;
